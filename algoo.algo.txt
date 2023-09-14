@@ -1,0 +1,29 @@
+
+
+def find_sum_of_distinct_elements(set1, set2):
+    # Step 1: Concatenate both sets into a single array
+    concatenated_array = set1 + set2
+
+    # Step 2: Create an empty hash table to store distinct elements and their counts
+    element_counts = {}
+
+    # Step 3: Traverse through the concatenated array and add elements to the hash table
+    for num in concatenated_array:
+        if num in element_counts:
+            element_counts[num] += 1
+        else:
+            element_counts[num] = 1
+
+    # Step 4: Calculate the sum of all distinct elements
+    sum_of_distinct_elements = 0
+    for num, count in element_counts.items():
+        if count == 1:  # Check if the element is distinct
+            sum_of_distinct_elements += num
+
+    return sum_of_distinct_elements
+
+# Example usage
+set1 = [3, 1, 7, 9]
+set2 = [2, 4, 1, 9, 3]
+output = find_sum_of_distinct_elements(set1, set2)
+print(output)  # Output: 13 (distinct elements 4, 7, 2)
